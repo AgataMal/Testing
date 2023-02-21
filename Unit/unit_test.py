@@ -1,10 +1,10 @@
 import unittest
-import wynik
+import math_operation
 
 class UnitTests(unittest.TestCase):
     
-    def test_wynik(self):
-        sum_wynik=wynik.wynik([2,3,4,5])
-        self.assertEqual (sum_wynik,14)
+    def test_sum_result(self):
+        sum_result=math_operation.sum_result([2,3,4,5])
+        self.assertEqual(sum_result,14)
 
 
