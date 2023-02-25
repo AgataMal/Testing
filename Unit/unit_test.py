@@ -17,3 +17,10 @@ class UnitTests(unittest.TestCase):
         self.assertTrue(result)
         result = math_operation.czy_liczba_pierwsza(1)
         self.assertFalse(result)
+
+    def test_reverse_list(self):
+        lista=math_operation.reverse_list([2,3,4])
+        self.assertEqual(lista,[4,3,2])
+
+    def test_duplikaty(self):
+        self.assertEqual(math_operation.duplikaty([20,30,40], [20,40,50]),[20,40])
