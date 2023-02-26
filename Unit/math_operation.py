@@ -29,3 +29,4 @@ def duplikaty(lista1,lista2):
             if i==j:
                 lista3.append(i)
     return lista3
+
