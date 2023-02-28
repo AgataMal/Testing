@@ -19,3 +19,5 @@ def czy_gruby(wzrost, waga):
             return "otyłość"
         elif BMI > 35:
             return "otyłość kliniczna"
+
+    

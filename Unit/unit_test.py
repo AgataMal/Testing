@@ -19,8 +19,14 @@ class UnitTests(unittest.TestCase):
         self.assertFalse(result)
 
     def test_reverse_list(self):
-        lista=math_operation.reverse_list([2,3,4])
-        self.assertEqual(lista,[4,3,2])
+        lista = math_operation.reverse_list([2, 3, 4])
+        self.assertEqual(lista, [4, 3, 2])
 
     def test_duplikaty(self):
-        self.assertEqual(math_operation.duplikaty([20,30,40], [20,40,50]),[20,40])
+        self.assertEqual(math_operation.duplikaty(
+            [20, 30, 40], [20, 40, 50]), [20, 40])
+
+    def test_srednia(self):
+        self.assertEqual(math_operation.srednia([]), None)
+        self.assertEqual(math_operation.srednia([5, 6, 7, 8]), 6.5)
+        self.assertEqual(math_operation.srednia([5, 6, 7, -8]), 2.5)
