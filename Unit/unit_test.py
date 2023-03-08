@@ -22,6 +22,10 @@ class UnitTests(unittest.TestCase):
         lista = math_operation.reverse_list([2, 3, 4])
         self.assertEqual(lista, [4, 3, 2])
 
+    def test_reverse_list2(self):
+        lista = math_operation.reverse_list2([2, 3, 4, 1, 5])
+        self.assertEqual(lista, [5, 1, 4, 3, 2])
+
     def test_duplikaty(self):
         self.assertEqual(math_operation.duplikaty(
             [20, 30, 40], [20, 40, 50]), [20, 40])

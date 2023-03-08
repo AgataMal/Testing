@@ -15,13 +15,19 @@ def czy_liczba_pierwsza(n):
     return True
 
 
-def reverse_list(dupa):
+def reverse_list(lista):
     list = []
-    dlugosc = len(dupa)
+    dlugosc = len(lista)
     for x in reversed(range(dlugosc)):
-        list.append(dupa[x])
+        list.append(lista[x])
     return list
 
+def reverse_list2(lista): # to do: zwalidować czy lista jest nieparzysta
+    for i in range(len(lista)//2):
+        temp=lista[i]
+        lista[i]=lista[len(lista)-1-i]
+        lista[len(lista)-1-i]=temp
+    return lista    
 
 def duplikaty(lista1, lista2):
     lista3 = []

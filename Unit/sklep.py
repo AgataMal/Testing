@@ -27,4 +27,7 @@ class Koszyk:
 
 
 def do_kasy(pieniadze:int, koszyk:Koszyk)-> int:
+    if pieniadze < koszyk.podlicz():
+        return 0
+
     return pieniadze-koszyk.podlicz()
