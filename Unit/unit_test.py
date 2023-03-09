@@ -34,3 +34,6 @@ class UnitTests(unittest.TestCase):
         self.assertEqual(math_operation.srednia([]), None)
         self.assertEqual(math_operation.srednia([5, 6, 7, 8]), 6.5)
         self.assertEqual(math_operation.srednia([5, 6, 7, -8]), 2.5)
+
+    def test_triangle_field(self):
+        self.assertEqual(math_operation.triangle_field (10,15),75)

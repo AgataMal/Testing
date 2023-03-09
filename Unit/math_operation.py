@@ -45,3 +45,6 @@ def srednia(lista_liczb: list) -> float:
             suma += x
         return suma/len(lista_liczb)
     return None
+
+def triangle_field(base, height)->float:
+    return 0.5 * base * height
