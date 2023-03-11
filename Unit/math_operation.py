@@ -1,3 +1,5 @@
+import math
+
 def sum_result(nums):
     result = 0
     for x in nums:
@@ -48,3 +50,16 @@ def srednia(lista_liczb: list) -> float:
 
 def triangle_field(base, height)->float:
     return 0.5 * base * height
+
+def quadratic_function(a,b,c):
+    delta=b**2-4*a*c
+    if delta==0:
+        x1=-b/2*a
+        return [x1] 
+
+    elif delta >0:
+        x1=(-b-math.sqrt(delta))/(2*a)
+        x2=(-b+math.sqrt(delta))/(2*a)
+        return[x1,x2]
+    else: 
+        return None

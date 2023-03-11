@@ -37,3 +37,8 @@ class UnitTests(unittest.TestCase):
 
     def test_triangle_field(self):
         self.assertEqual(math_operation.triangle_field (10,15),75)
+
+    def test_quadratic_function(self):
+        self.assertIsNone(math_operation.quadratic_function(2,2,2))
+        self.assertListEqual(math_operation.quadratic_function(1,-2,1), [1])
+        self.assertListEqual(math_operation.quadratic_function(2,5,-3), [-3, 0.5])
