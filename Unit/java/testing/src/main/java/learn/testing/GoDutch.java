@@ -5,7 +5,6 @@ public class GoDutch {
     public int calculateTip(int totalBill, int friendsCount) {
 
         if (totalBill < 0) {
-            System.out.println("Bill total amount cannot be negative");
             return -1;
         }
 
@@ -19,7 +18,6 @@ public class GoDutch {
             int result = (int) (toPay + 0.1 * toPay);
             return result == 0 ? 1 : result;
         } else {
-            System.out.println("Number of friends cannot be negative or zero");
         }
         return -1;
     }
