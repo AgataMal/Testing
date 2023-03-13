@@ -1,8 +1,10 @@
 class Lampka:
     def __init__(self):
-        self.czy_wlaczona=False #wyłączona
+        self.__czy_wlaczona=False #wyłączona
+        
     def pstryk(self):
-        if not self.czy_wlaczona:   # jeśli jest wyłaczona
-            self.czy_wlaczona=True  # włączamy
+        if not self.__czy_wlaczona:   # jeśli jest wyłaczona
+            self.__czy_wlaczona=True  # włączamy
         else:
-            self.czy_wlaczona=False # lub wyłaczamy
+            self.__czy_wlaczona=False # lub wyłaczamy
+        return self.__czy_wlaczona
