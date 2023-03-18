@@ -1,29 +1,32 @@
 class Produkt:
-    cena = 0
-    nazwa = None
+    __cena = 0
+    __nazwa = None
 
     def __init__(self, cena, nazwa):
-        self.cena = cena
-        self.nazwa = nazwa
+        self.__cena = cena
+        self.__nazwa = nazwa
 
     def cena_produktu(self):
-        return self.cena
+        return self.__cena
+
+    def __str__(self):
+        return f'{self.__nazwa}:{self.__cena}'
 
 
 class Koszyk:
-    produkty = []
+    __produkty = []
 
     def wrzuc(self, produkt):
-        self.produkty.append(produkt)
+        self.__produkty.append(produkt)
 
     def podlicz(self):
         kupione = 0
-        for produkt in self.produkty:
+        for produkt in self.__produkty:
             kupione += produkt.cena_produktu()
         return kupione
 
     def wez_produkty(self):
-        return self.produkty
+        return self.__produkty
 
 
 def do_kasy(pieniadze:int, koszyk:Koszyk)-> int:
