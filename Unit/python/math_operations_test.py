@@ -1,5 +1,12 @@
 import unittest
 import math_operation
+import pytest
+
+
+@pytest.mark.parametrize('input,expected',[(5, True),(4,False),(7,True),(1,False)])
+def test_czy_liczba_pierwsza(input,expected):
+    result = math_operation.czy_liczba_pierwsza(input)
+    assert result == expected
 
 
 class UnitTests(unittest.TestCase):
@@ -8,15 +15,6 @@ class UnitTests(unittest.TestCase):
         sum_result = math_operation.sum_result([2, 3, 4, 5])
         self.assertEqual(sum_result, 14)
 
-    def test_czy_liczba_pierwsza(self):
-        result = math_operation.czy_liczba_pierwsza(5)
-        self.assertTrue(result)
-        result = math_operation.czy_liczba_pierwsza(4)
-        self.assertFalse(result)
-        result = math_operation.czy_liczba_pierwsza(7)
-        self.assertTrue(result)
-        result = math_operation.czy_liczba_pierwsza(1)
-        self.assertFalse(result)
 
     def test_reverse_list(self):
         lista = math_operation.reverse_list([2, 3, 4])
