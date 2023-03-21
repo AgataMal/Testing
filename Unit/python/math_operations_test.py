@@ -1,12 +1,6 @@
 import unittest
 import math_operation
-import pytest
-
-
-@pytest.mark.parametrize('input,expected',[(5, True),(4,False),(7,True),(1,False)])
-def test_czy_liczba_pierwsza(input,expected):
-    result = math_operation.czy_liczba_pierwsza(input)
-    assert result == expected
+from parameterized import parameterized
 
 
 class UnitTests(unittest.TestCase):
@@ -15,6 +9,10 @@ class UnitTests(unittest.TestCase):
         sum_result = math_operation.sum_result([2, 3, 4, 5])
         self.assertEqual(sum_result, 14)
 
+    @parameterized.expand([(5, True), (4, False), (7, True), (1, False)])
+    def test_czy_liczba_pierwsza(self, input, expected):
+        result = math_operation.czy_liczba_pierwsza(input)
+        self.assertEqual(result, expected)
 
     def test_reverse_list(self):
         lista = math_operation.reverse_list([2, 3, 4])
@@ -34,9 +32,10 @@ class UnitTests(unittest.TestCase):
         self.assertEqual(math_operation.srednia([5, 6, 7, -8]), 2.5)
 
     def test_triangle_field(self):
-        self.assertEqual(math_operation.triangle_field (10,15),75)
+        self.assertEqual(math_operation.triangle_field(10, 15), 75)
 
     def test_quadratic_function(self):
-        self.assertIsNone(math_operation.quadratic_function(2,2,2))
-        self.assertListEqual(math_operation.quadratic_function(1,-2,1), [1])
-        self.assertListEqual(math_operation.quadratic_function(2,5,-3), [-3, 0.5])
+        self.assertIsNone(math_operation.quadratic_function(2, 2, 2))
+        self.assertListEqual(math_operation.quadratic_function(1, -2, 1), [1])
+        self.assertListEqual(
+            math_operation.quadratic_function(2, 5, -3), [-3, 0.5])
