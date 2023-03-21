@@ -1,10 +1,10 @@
-def czy_gruby(wzrost, waga):
+def wynik_BMI(wzrost, waga):
     if wzrost is None or waga is None:
-        return "błąd"
+        raise ValueError("wprowadź obie wartości liczbowe")
     if type(wzrost) == str or type(waga) == str:
-        return "błąd"
-    if wzrost <= 0 and waga <= 0:
-        return "błąd"
+        raise ValueError("błędne wartości")
+    if wzrost <= 0 or waga <= 0:
+        raise ValueError("podaj wartość większą niż 0")
 
     BMI = waga/wzrost**2
 
