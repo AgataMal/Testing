@@ -26,16 +26,19 @@ class UnitTests(unittest.TestCase):
         self.assertEqual(math_operation.duplikaty(
             [20, 30, 40], [20, 40, 50]), [20, 40])
 
-    def test_srednia(self):
-        self.assertEqual(math_operation.srednia([]), None)
-        self.assertEqual(math_operation.srednia([5, 6, 7, 8]), 6.5)
-        self.assertEqual(math_operation.srednia([5, 6, 7, -8]), 2.5)
+    @parameterized.expand([
+        ([], None), ([5, 6, 7, 8], 6.5), ([5, 6, 7, -8], 2.5)])
+    def test_srednia(self, input, expected):
+        self.assertEqual(math_operation.srednia(input), expected)
 
     def test_triangle_field(self):
         self.assertEqual(math_operation.triangle_field(10, 15), 75)
 
-    def test_quadratic_function(self):
+    @parameterized.expand([
+        (1, -2, 1, [1]),
+        (2, 5, -3, [-3, 0.5])
+    ])
+    def test_quadratic_function(self, a, b, c, expected):
         self.assertIsNone(math_operation.quadratic_function(2, 2, 2))
-        self.assertListEqual(math_operation.quadratic_function(1, -2, 1), [1])
         self.assertListEqual(
-            math_operation.quadratic_function(2, 5, -3), [-3, 0.5])
+            math_operation.quadratic_function(a,b,c), expected)
