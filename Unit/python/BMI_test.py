@@ -1,35 +1,32 @@
 import unittest
 from BMI import wynik_BMI
+from parameterized import parameterized
 
 
 class UnitTests(unittest.TestCase):
-    def test_should_return_valid_output(self):
-        self.assertEqual(wynik_BMI(1.5, 30), 'niedowaga')
-        self.assertEqual(wynik_BMI(1.5, 100), 'otyłość kliniczna')
-        self.assertEqual(wynik_BMI(1.5, 50), 'norma')
-        self.assertEqual(wynik_BMI(1.5, 70), 'otyłość')
+    @parameterized.expand([
+        (1.5, 30, 'niedowaga'),
+        (1.5, 100, 'otyłość kliniczna'),
+        (1.5, 50, 'norma'),
+        (1.5, 70, 'otyłość')
+    ])
+    def test_should_return_valid_output(self, height, weight, expected):
+        self.assertEqual(wynik_BMI(height, weight), expected)
 
-    def test_should_fail_on_empty_input(self):
+    @parameterized.expand([
+        (None, None), (1.5, None), (None, 20)
+    ])
+    def test_should_fail_on_empty_input(self, height, weight):
+        with self.assertRaisesRegex(ValueError, "wprowadź obie wartości liczbowe"):
+            wynik_BMI(height, weight)
 
-        expected_non_empty_input="wprowadź obie wartości liczbowe"
+    @parameterized.expand([
+        ('@#$', '@@#$'), (1.5, '@@#'), ('@#$', 200)
+    ])
+    def test_should_fail_on_string_input(self, height, weight):
 
-        with self.assertRaisesRegex(ValueError, expected_non_empty_input):
-            wynik_BMI(None, None)
-        with self.assertRaisesRegex(ValueError, expected_non_empty_input):
-            wynik_BMI(1.5, None)
-        with self.assertRaisesRegex(ValueError, expected_non_empty_input):
-            wynik_BMI(None, 20)
-        
-    def test_should_fail_on_string_input(self):
-
-        expected_valid_input="błędne wartości"
-
-        with self.assertRaisesRegex(ValueError, expected_valid_input):
-            wynik_BMI('@#$', '@@#$')
-        with self.assertRaisesRegex(ValueError, expected_valid_input):
-            wynik_BMI(1.5, '@@#')
-        with self.assertRaisesRegex(ValueError, expected_valid_input):
-            wynik_BMI('@#$', 200)
+        with self.assertRaisesRegex(ValueError, "błędne wartości"):
+            wynik_BMI(height, weight)
 
     def test_should_fail_on_zero_input(self):
 
