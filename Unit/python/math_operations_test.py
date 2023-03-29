@@ -21,6 +21,8 @@ class UnitTests(unittest.TestCase):
     def test_reverse_list2(self):
         lista = math_operation.reverse_list2([2, 3, 4, 1, 5])
         self.assertEqual(lista, [5, 1, 4, 3, 2])
+        with self.assertRaisesRegex(ValueError,"brak środkowego elementu"):
+            math_operation.reverse_list2([1,2,3,6])
 
     def test_duplikaty(self):
         self.assertEqual(math_operation.duplikaty(

@@ -1,5 +1,6 @@
 import math
 
+
 def sum_result(nums):
     result = 0
     for x in nums:
@@ -24,12 +25,17 @@ def reverse_list(lista):
         list.append(lista[x])
     return list
 
-def reverse_list2(lista): # to do: zwalidować czy lista jest nieparzysta
+
+def reverse_list2(lista):
+    if len(lista) % 2 == 0:
+        raise ValueError("brak środkowego elementu")
+
     for i in range(len(lista)//2):
-        temp=lista[i]
-        lista[i]=lista[len(lista)-1-i]
-        lista[len(lista)-1-i]=temp
-    return lista    
+        temp = lista[i]
+        lista[i] = lista[len(lista)-1-i]
+        lista[len(lista)-1-i] = temp
+    return lista
+
 
 def duplikaty(lista1, lista2):
     lista3 = []
@@ -48,18 +54,20 @@ def srednia(lista_liczb: list) -> float:
         return suma/len(lista_liczb)
     return None
 
-def triangle_field(base, height)->float:
+
+def triangle_field(base, height) -> float:
     return 0.5 * base * height
 
-def quadratic_function(a,b,c):
-    delta=b**2-4*a*c
-    if delta==0:
-        x1=-b/2*a
-        return [x1] 
 
-    elif delta >0:
-        x1=(-b-math.sqrt(delta))/(2*a)
-        x2=(-b+math.sqrt(delta))/(2*a)
-        return[x1,x2]
-    else: 
+def quadratic_function(a, b, c):
+    delta = b**2-4*a*c
+    if delta == 0:
+        x1 = -b/2*a
+        return [x1]
+
+    elif delta > 0:
+        x1 = (-b-math.sqrt(delta))/(2*a)
+        x2 = (-b+math.sqrt(delta))/(2*a)
+        return [x1, x2]
+    else:
         return None
