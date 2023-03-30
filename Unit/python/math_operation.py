@@ -71,3 +71,15 @@ def quadratic_function(a, b, c):
         return [x1, x2]
     else:
         return None
+
+def odd_even_counts(lista: list) -> list:
+    even_list=[]
+    odd_list=[]
+    dlugos_even_list=len(even_list)
+    for i in lista:
+        if i%2==0:
+            even_list.append(i)
+        else:
+            odd_list.append(i)
+        
+    return [len(even_list),len(odd_list)]
