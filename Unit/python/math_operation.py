@@ -83,3 +83,14 @@ def odd_even_counts(lista: list) -> list:
             odd_list.append(i)
         
     return [len(even_list),len(odd_list)]
+
+def even_counts(lista: list) -> list:
+    even_counts=0
+    for i in lista:
+        if i%2==0:
+            even_counts += 1
+    return [even_counts, len(lista)-even_counts]
+
+
+
+

@@ -49,3 +49,8 @@ class UnitTests(unittest.TestCase):
         lista=[2,3,4,5,6,7]
         expected= [3,3]
         self.assertEqual(math_operation.odd_even_counts(lista), expected)
+
+    def test_even_counts(self):
+        lista=[2,3,4,5,6,7]
+        expected= [3,3]
+        self.assertEqual(math_operation.even_counts(lista), expected)
