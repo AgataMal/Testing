@@ -75,7 +75,6 @@ def quadratic_function(a, b, c):
 def odd_even_counts(lista: list) -> list:
     even_list=[]
     odd_list=[]
-    dlugos_even_list=len(even_list)
     for i in lista:
         if i%2==0:
             even_list.append(i)
@@ -90,6 +89,21 @@ def even_counts(lista: list) -> list:
         if i%2==0:
             even_counts += 1
     return [even_counts, len(lista)-even_counts]
+
+def how_many_letters(words: list) -> int:
+    letters=0
+    for word in words:
+        letters += len(word)
+    return letters
+
+def how_many_vowels(words: list) -> int:
+    vowel_letter=0
+    vowels=("a", "u", "i", "e", "o")
+    for word in words:
+        for letter in word:
+            if letter.lower() in vowels:
+                vowel_letter+=1
+    return vowel_letter
 
 
 

@@ -54,3 +54,16 @@ class UnitTests(unittest.TestCase):
         lista=[2,3,4,5,6,7]
         expected= [3,3]
         self.assertEqual(math_operation.even_counts(lista), expected)
+
+    def test_ow_many_letters(self):
+        words= ["ala","ma","kota"]
+        expected= 9
+        self.assertEqual(math_operation.how_many_letters(words), expected)
+
+    def test_how_many_vowels(self):
+        words= ["ala","ma","kota"]
+        expected=5
+        self.assertEqual(math_operation.how_many_vowels(words), expected)
+        words= ["Ala","ma","kota"]
+        expected=5
+        self.assertEqual(math_operation.how_many_vowels(words), expected)
