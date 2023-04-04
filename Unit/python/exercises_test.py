@@ -25,4 +25,9 @@ class UnitTests(unittest.TestCase):
         self.assertFalse(exercises.is_leap(2200))
         self.assertFalse(exercises.is_leap(2300))
         self.assertFalse(exercises.is_leap(2500))
+    
+    def test_capitalize(self):
+       
+        self.assertEqual( exercises.capitalize("ola nowak"),"Ola Nowak")
+        self.assertEqual( exercises.capitalize("1ola 2nowak"),"1ola 2nowak")
         

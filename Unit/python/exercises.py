@@ -39,6 +39,25 @@ def is_leap(year):
             return False
         return True
     return False
-    
+
+def capitalize(name:str)-> str:
+    upper_names=[]
+    white_space=False
+    for i in name:    
+        if i == " ":
+            upper_names.append(i)
+            white_space=True
+            continue
+        if i.isnumeric():
+            upper_names.append(i)
+
+        if i.islower():
+            if len(upper_names)==0 or white_space:
+                upper_names.append(i.upper())
+            else:
+                upper_names.append(i)
+        white_space=False
+    return "".join(upper_names)
+
 
 
