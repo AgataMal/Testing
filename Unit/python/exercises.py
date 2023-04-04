@@ -50,7 +50,6 @@ def capitalize(name:str)-> str:
             continue
         if i.isnumeric():
             upper_names.append(i)
-
         if i.islower():
             if len(upper_names)==0 or white_space:
                 upper_names.append(i.upper())
