@@ -30,4 +30,5 @@ class UnitTests(unittest.TestCase):
        
         self.assertEqual( exercises.capitalize("ola nowak"),"Ola Nowak")
         self.assertEqual( exercises.capitalize("1ola 2nowak"),"1ola 2nowak")
+        self.assertEqual( exercises.capitalize("132 456 Wq  m e"), "132 456 Wq  M E")
         
