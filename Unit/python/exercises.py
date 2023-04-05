@@ -32,35 +32,33 @@ def is_Weird(n):
 
 
 def is_leap(year):
-    if year % 4 == 0: 
-        if year %100==0:
-            if year %400 == 0:
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
                 return True
             return False
         return True
     return False
 
-def capitalize(name:str)-> str:
-    upper_names=[]
-    white_space=False
-    for i in name:    
-        if i == " ":
-            upper_names.append(i)
-            white_space=True
-            continue 
-        if i.isnumeric():
-            upper_names.append(i)
-            white_space=False
-            continue
-        if i.islower():
-            if len(upper_names)==0 or white_space:
-                upper_names.append(i.upper())
-            else:
-                upper_names.append(i)
+
+def capitalize(name: str) -> str:
+
+    result_string = []
+    was_white_space = False
+
+    for letter in name:
+
+        is_first_letter = len(result_string) == 0
+        is_white_space = letter == " "
+
+        if is_white_space or letter.isnumeric():
+            result_string.append(letter)
+            was_white_space = is_white_space
+        elif letter.islower() and (is_first_letter or was_white_space):
+            result_string.append(letter.upper())
+            was_white_space = False
         else:
-            upper_names.append(i)
-        white_space=False
-    return "".join(upper_names)
-
-
-
+            result_string.append(letter)
+            was_white_space = False
+            
+    return "".join(result_string)
