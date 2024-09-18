@@ -1,0 +1,12 @@
+pipeline {
+    agent {
+        docker { image 'agatamalczyk/pycoverage:latest' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'cd /tests && coverage run -m pytest'
+            }
+        }
+    }
+}
