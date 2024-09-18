@@ -1,0 +1,12 @@
+pipeline {
+    agent {
+        docker { image 'agatamalczyk/maven:latest' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'mvn -f /tests/pom.xml test -B'
+            }
+        }
+    }
+}
